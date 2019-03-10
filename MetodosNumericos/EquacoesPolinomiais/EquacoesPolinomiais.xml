@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EquacoesPolinomiais</name>
+    </assembly>
+    <members>
+        <member name="T:EquacoesPolinomiais.Polinomio">
+            <summary>
+            Polinômio de uma varável (x)
+            </summary>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.#ctor(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Representação de polinômio com potencias decrescentes em x
+            </summary>
+            <param name="coeficiente">Lista de coeficientes dos termos do polinômio na ordem decrescente</param>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetGrau">
+            <summary>
+            Retorna o grau do polinômio
+            </summary>
+        </member>
+        <member name="P:EquacoesPolinomiais.Polinomio.Tolerancia">
+            <summary>
+            Determina a tolerância dos métodos numéricos utilizados, por padrão está definido para 1e-8 (oito casas decimáis de precisão)
+            </summary>
+        </member>
+        <member name="P:EquacoesPolinomiais.Polinomio.InteracaoMaxima">
+            <summary>
+            Determina o número máximo de interações dos métodos numéricos, por padrão está definido como 5000
+            </summary>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetRaizes">
+            <summary>
+            Retorna uma lista de double com todas as raízes reais do polinômio
+            </summary>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetValorPolinomio(System.Double)">
+            <summary>
+            Determina o valor numérico do polinômio
+            </summary>
+            <param name="x">valor de x para a determinação do valor numérico do polinômio</param>
+            <returns></returns>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetValorDerivada(System.Double)">
+            <summary>
+            Determina o valor numérico da derivada do polinômio
+            </summary>
+            <param name="x">valor de x para a determinação do valor numérico da derivada do polinômio</param>
+            <returns></returns>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetCotaDeFujiwara">
+            <summary>
+            determina a cota de Fujiwara
+            </summary>
+        </member>
+        <member name="M:EquacoesPolinomiais.Polinomio.GetZeroComNewton(System.Double)">
+            <summary>
+            Determina uma raíz do polinômio com utilização do método de Newton
+            </summary>
+            <param name="x0">Estimativa inicial da raíz</param>
+        </member>
+    </members>
+</doc>

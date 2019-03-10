@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Matematica</name>
+    </assembly>
+    <members>
+        <member name="T:Matematica.Matriz">
+            <summary>
+            Operações aritiméticas fundamentais com matrizes
+            </summary>
+            <exception cref="T:Matematica.DimensaoMatrizException">Exceção lançada sempre que os parametros de dimensões da matriz exigidos pelo método não forem atendidos</exception>
+        </member>
+        <member name="M:Matematica.Matriz.Soma(System.Double[0:,0:],System.Double[0:,0:])">
+            <summary>
+            Realiza a soma entre duas matrizes com numero de linhas e colunas iguais.
+            [Soma] = [MatrizA] + [MatrizB]
+            </summary>
+            <param name="matrizA">Primeira Matriz</param>
+            <param name="matrizB">Segunda Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Subtracao(System.Double[0:,0:],System.Double[0:,0:])">
+            <summary>
+            Realiza a subtração entre duas matrizes com numero de linhas e colunas iguais.
+            [Subtração] = [MatrizA] - [MatrizB] 
+            </summary>
+            <param name="matrizA">Primeira Matriz</param>
+            <param name="matrizB">Segunda Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Produto(System.Double[0:,0:],System.Double[0:,0:])">
+            <summary>
+            Realiza a multiplicação entre duas matrizes, desde que o número de colunas da matriz A seja igual ao número de linhas da matriz B.
+            </summary>
+            <param name="matrizA">Primeira matriz</param>
+            <param name="matrizB">Segunda matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.ProdutoLinhaColuna(System.Double[0:,0:],System.Double[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Codigo auxiliar para multiplicacao de matrizes, realiza multiplicação de uma linha especificada da matriz A por uma coluna especificado da Matriz B
+            </summary>
+            <param name="matrizA">Primeira Matriz</param>
+            <param name="matrizB">Segunda Matriz</param>
+            <param name="linhaDeA">Linha da primeira matriz</param>
+            <param name="colunaDeB">Coluna da segunda matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Identidade(System.Int32)">
+            <summary>
+            Retorma uma matriz identidade quando especificada a ordem. Ex: para retornar uma identidade 2x2 o valor da ordem deve ser 2.
+            </summary>
+            <param name="ordem">Número de linhas/colunas da matriz identidade</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Transposta(System.Double[0:,0:])">
+            <summary>
+            Retorna a transposta de uma matriz
+            </summary>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.ProdutoConstanteMatriz(System.Double,System.Double[0:,0:])">
+            <summary>
+            Retorna o produto de uma matriz por uma constante
+            </summary>
+            <param name="c">Constante</param>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Oposta(System.Double[0:,0:])">
+            <summary>
+            Retorna a oposta da matriz
+            </summary>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Determinante(System.Double[0:,0:])">
+            <summary>
+            Retorna o determinante da matriz
+            </summary>
+            <param name="matriz">Matriz</param>
+            <returns>Retorna o valor do determinante de qualquer matriz</returns>
+        </member>
+        <member name="M:Matematica.Matriz.TrimArray(System.Int32,System.Int32,System.Double[0:,0:])">
+            <summary>
+            Método para remover linhas e colunas, utilizado com o método para gerarDeterminante
+            </summary>
+            <param name="rowToRemove">Recebe a linha para remover</param>
+            <param name="columnToRemove">Recebe a coluna para remover</param>
+            <param name="originalArray">Recebe a matriz original</param>
+            <returns>Retorna a matriz com linha e coluna removidos</returns>
+        </member>
+        <member name="M:Matematica.Matriz.Inversa(System.Double[0:,0:])">
+            <summary>
+            Retorna inversa da matriz
+            </summary>
+            <param name="matriz">Matriz</param>
+            <returns>Retorna a inversa da matriz</returns>
+        </member>
+        <member name="M:Matematica.Matriz.IsMatrizQuadrada(System.Double[0:,0:])">
+            <summary>
+            Verifica se a matriz é quadrada
+            </summary>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.MatrizColuna(System.Double[])">
+            <summary>
+            Transforma um vetor em uma matriz com uma linha
+            </summary>
+            <param name="vetor">vetor</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

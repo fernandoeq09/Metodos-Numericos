@@ -6,10 +6,17 @@ using System.Linq;
 
 namespace EquacoesPolinomiais
 {
+    /// <summary>
+    /// Polinômio de uma varável (x)
+    /// </summary>
     public class Polinomio
     {
+        
         //construtor da classe Polinômio
-        //o argumento deve uma lista com os coeficientes de x na ordem decrescente
+        /// <summary>
+        /// Representação de polinômio com potencias decrescentes em x
+        /// </summary>
+        /// <param name="coeficiente">Lista de coeficientes dos termos do polinômio na ordem decrescente</param>
         public Polinomio(List<double> coeficiente)
         {
             coeficiente.Reverse();
@@ -24,8 +31,12 @@ namespace EquacoesPolinomiais
             this.InteracaoMaxima = 5000;
         }
 
+
         //recupera o grau do polinômio
         private readonly int grau;
+        /// <summary>
+        /// Retorna o grau do polinômio
+        /// </summary>
         public int GetGrau()
         {
             return grau;
@@ -34,12 +45,20 @@ namespace EquacoesPolinomiais
         //coeficientes do polinômio
         private List<double> coeficiente;
         
-        //tolerância dos métodos numéricos (predefinição=1e-8)
+        /// <summary>
+        /// Determina a tolerância dos métodos numéricos utilizados, por padrão está definido para 1e-8 (oito casas decimáis de precisão)
+        /// </summary>
         public double Tolerancia { get; set; }
-        //número máximo de interações dos métodos númericos
+
+        /// <summary>
+        /// Determina o número máximo de interações dos métodos numéricos, por padrão está definido como 5000
+        /// </summary>
         public int InteracaoMaxima { get; set; }
 
         //recupera as raizes dos polinômio
+        /// <summary>
+        /// Retorna uma lista de double com todas as raízes reais do polinômio
+        /// </summary>
         public List<double> GetRaizes()
         {
             List<double> raizes = new List<double>();
@@ -112,7 +131,10 @@ namespace EquacoesPolinomiais
                     raizes.Add(Arredondar(x1));
                     foreach (var r in raizesPolinomioAux)
                     {
-                        raizes.Add(Arredondar(r));
+                        if (raizes.Contains(r) == false)
+                        {
+                            raizes.Add(Arredondar(r));
+                        }
                     }
                     return raizes;
                 }
@@ -131,7 +153,10 @@ namespace EquacoesPolinomiais
                 raizes.Add(Arredondar(primeiraRaiz));
                 foreach (var r in raizesPolinomioAux)
                 {
-                    raizes.Add(Arredondar(r));
+                    if (raizes.Contains(r) == false)
+                    {
+                        raizes.Add(Arredondar(r));
+                    }
                 }
                 return raizes;
             }//Metodo de Newton com Briot Ruffini
@@ -160,7 +185,11 @@ namespace EquacoesPolinomiais
             return new Polinomio(coeficientePolinomioReduzido);
         }
 
-        //recupera o valor numérico do polinômio aplicado ao ponto x
+        /// <summary>
+        /// Determina o valor numérico do polinômio
+        /// </summary>
+        /// <param name="x">valor de x para a determinação do valor numérico do polinômio</param>
+        /// <returns></returns>
         public double GetValorPolinomio(double x)
         {
             double ans = 0;
@@ -170,7 +199,12 @@ namespace EquacoesPolinomiais
             }
             return ans;
         }
-        //recupera o valor numérico da derivada do polinômio aplicado ao ponto x
+        
+        /// <summary>
+        /// Determina o valor numérico da derivada do polinômio
+        /// </summary>
+        /// <param name="x">valor de x para a determinação do valor numérico da derivada do polinômio</param>
+        /// <returns></returns>
         public double GetValorDerivada(double x)
         {
             double ans = 0;
@@ -183,6 +217,9 @@ namespace EquacoesPolinomiais
 
         //determina a cota de Fujiwara
         //-CotaFujiwara =< raiz =< CotaFujiwara
+        /// <summary>
+        /// determina a cota de Fujiwara
+        /// </summary>
         private double GetCotaDeFujiwara()
         {
             List<double> termo = new List<double>();
@@ -198,6 +235,10 @@ namespace EquacoesPolinomiais
         }
 
         //Aplica Metodo de Newton para recuperar uma raíz do polinômio com estimativa inicial x0
+        /// <summary>
+        /// Determina uma raíz do polinômio com utilização do método de Newton
+        /// </summary>
+        /// <param name="x0">Estimativa inicial da raíz</param>
         private double GetZeroComNewton(double x0)
         {
             double x = x0;
@@ -230,6 +271,7 @@ namespace EquacoesPolinomiais
             return Math.Round(r, Math.Abs((int)Math.Log10(this.Tolerancia)));
         }
         //Recupera o sinal de um número
+        //Função foi criada devido método Math.Pow não aceitar base da potência negativa para raíz cúbica
         private static double GetSinal(double x)
         {
             if (x >= 0)

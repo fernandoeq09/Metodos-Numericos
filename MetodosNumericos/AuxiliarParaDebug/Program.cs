@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using EquacoesPolinomiais;
+using Matematica;
+using SistemasDeEquacoes;
+
 namespace AuxiliarParaDebug
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            Polinomio p = new Polinomio(new List<double> {1,0,-3,-2});
-            foreach (var r in p.GetRaizes())
-            {
-                Console.WriteLine("raiz: " +r);
-                Console.WriteLine("funcao: " + p.GetValorPolinomio(r));
-            }
+
+
+            double[,] coef = new double [,] { { 3, 0, 1}, { 1, 1, 1}, { 0, 2, -1 } };
+            double[] r = new double[] { -5, -2, -3};
+            SistemaLinear s = new SistemaLinear(coef, r);
+            var sol = s.GetSolucao();
             Console.WriteLine("processo finalizado");
             Console.ReadKey();
         }
