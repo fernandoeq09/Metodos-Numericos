@@ -5,16 +5,16 @@ namespace SistemasDeEquacoes
 {
     public class SistemaLinear
     {
-        private readonly double[] _vetorResposta;
-        private readonly double[,] _matrizCoeficientes;
+        private readonly Vetor _vetorResposta;
+        private readonly Matriz _matrizCoeficientes;
 
-        public SistemaLinear(double[,] matrizCoeficientes,double[] vetorResposta)
+        public SistemaLinear(Matriz matrizCoeficientes,Vetor vetorResposta)
         {
-            if (Matriz.IsMatrizQuadrada(matrizCoeficientes) == false)
+            if (matrizCoeficientes.IsQuadrada() == false)
             {
                 throw new DimensaoMatrizException("A matriz de coeficientes deve ser quadrada");
             }
-            if (vetorResposta.GetUpperBound(0)!=matrizCoeficientes.GetUpperBound(0))
+            if (vetorResposta.Comprimento!=matrizCoeficientes.NumeroDeLinhas)
             {
                 throw new ArgumentException("A dimensão do vetor de resposta deve ser a mesma da matriz");
             }
@@ -38,14 +38,13 @@ namespace SistemasDeEquacoes
         /// Obtem a solução trivial do sistema de equações
         /// </summary>
         /// <returns></returns>
-        public double[] GetSolucao()
+        public Vetor GetSolucao()
         {
-            var matrizResposta = Matriz.MatrizColuna(_vetorResposta);
-            var matrizSolucao = Matriz.Produto( Matriz.Inversa(_matrizCoeficientes), matrizResposta);
-            double[] vetorSolucao = new double[matrizSolucao.GetUpperBound(0) + 1];
-            for (int j = 0; j <= vetorSolucao.GetUpperBound(0); j++)
+            var matrizSolucao = _matrizCoeficientes.Inversa() * _vetorResposta;
+            Vetor vetorSolucao = new Vetor(matrizSolucao.NumeroDeLinhas);
+            for (int j = 0; j < vetorSolucao.Comprimento; j++)
             {
-                vetorSolucao[j] = AjustarParaTolerancia(matrizSolucao[j, 0]);
+                vetorSolucao.Item[j] = AjustarParaTolerancia(matrizSolucao.Item[j, 0]);
             }
             return vetorSolucao;
         }

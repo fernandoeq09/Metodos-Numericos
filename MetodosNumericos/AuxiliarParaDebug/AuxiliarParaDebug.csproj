@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EquacoesNaoLineares\EquacoesNaoLineares.csproj" />
     <ProjectReference Include="..\EquacoesPolinomiais\EquacoesPolinomiais.csproj" />
     <ProjectReference Include="..\Matematica\Matematica.csproj" />
+    <ProjectReference Include="..\ProgramacaoNaoLinear\ProgramacaoNaoLinear.csproj" />
     <ProjectReference Include="..\SistemasDeEquacoes\SistemasDeEquacoes.csproj" />
   </ItemGroup>
 

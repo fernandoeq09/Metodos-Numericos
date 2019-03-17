@@ -10,7 +10,35 @@
             </summary>
             <exception cref="T:Matematica.DimensaoMatrizException">Exceção lançada sempre que os parametros de dimensões da matriz exigidos pelo método não forem atendidos</exception>
         </member>
-        <member name="M:Matematica.Matriz.Soma(System.Double[0:,0:],System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.#ctor(System.Double[0:,0:])">
+            <summary>
+            Construtor da matriz a partir de um Array bidimensional
+            </summary>
+            <param name="matriz">Array bidimensional</param>
+        </member>
+        <member name="M:Matematica.Matriz.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Construtor da matriz a partir de especificações de números de linhas e colunas
+            </summary>
+            <param name="totalLinhas">número total de linhas da matriz</param>
+            <param name="totalColunas">número total de colunas da matriz</param>
+        </member>
+        <member name="P:Matematica.Matriz.Item">
+            <summary>
+            Array com os itens da matriz
+            </summary>
+        </member>
+        <member name="P:Matematica.Matriz.NumeroDeLinhas">
+            <summary>
+            Retorna o número de linhas da matriz
+            </summary>
+        </member>
+        <member name="P:Matematica.Matriz.NumeroDeColunas">
+            <summary>
+            Retorna o número de colunas da matriz
+            </summary>
+        </member>
+        <member name="M:Matematica.Matriz.op_Addition(Matematica.Matriz,Matematica.Matriz)">
             <summary>
             Realiza a soma entre duas matrizes com numero de linhas e colunas iguais.
             [Soma] = [MatrizA] + [MatrizB]
@@ -19,7 +47,7 @@
             <param name="matrizB">Segunda Matriz</param>
             <returns></returns>
         </member>
-        <member name="M:Matematica.Matriz.Subtracao(System.Double[0:,0:],System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.op_Subtraction(Matematica.Matriz,Matematica.Matriz)">
             <summary>
             Realiza a subtração entre duas matrizes com numero de linhas e colunas iguais.
             [Subtração] = [MatrizA] - [MatrizB] 
@@ -28,12 +56,44 @@
             <param name="matrizB">Segunda Matriz</param>
             <returns></returns>
         </member>
-        <member name="M:Matematica.Matriz.Produto(System.Double[0:,0:],System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.op_Multiply(Matematica.Matriz,Matematica.Matriz)">
             <summary>
             Realiza a multiplicação entre duas matrizes, desde que o número de colunas da matriz A seja igual ao número de linhas da matriz B.
             </summary>
             <param name="matrizA">Primeira matriz</param>
             <param name="matrizB">Segunda matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.op_Multiply(System.Double,Matematica.Matriz)">
+            <summary>
+            Realiza o produto entre uma constante e uma matriz
+            </summary>
+            <param name="c">Constante</param>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.op_Multiply(Matematica.Matriz,System.Double)">
+            <summary>
+            Realiza o produto entre uma constante e uma matriz
+            </summary>
+            <param name="c">Constante</param>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.op_Multiply(Matematica.Matriz,Matematica.Vetor)">
+            <summary>
+            Realiza o produto entre uma constante e uma matriz
+            </summary>
+            <param name="vetor">Vetor</param>
+            <param name="matriz">Matriz</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.op_Multiply(Matematica.Vetor,Matematica.Matriz)">
+            <summary>
+            Realiza o produto entre uma constante e uma matriz
+            </summary>
+            <param name="vetor">Vetor</param>
+            <param name="matriz">Matriz</param>
             <returns></returns>
         </member>
         <member name="M:Matematica.Matriz.ProdutoLinhaColuna(System.Double[0:,0:],System.Double[0:,0:],System.Int32,System.Int32)">
@@ -46,20 +106,6 @@
             <param name="colunaDeB">Coluna da segunda matriz</param>
             <returns></returns>
         </member>
-        <member name="M:Matematica.Matriz.Identidade(System.Int32)">
-            <summary>
-            Retorma uma matriz identidade quando especificada a ordem. Ex: para retornar uma identidade 2x2 o valor da ordem deve ser 2.
-            </summary>
-            <param name="ordem">Número de linhas/colunas da matriz identidade</param>
-            <returns></returns>
-        </member>
-        <member name="M:Matematica.Matriz.Transposta(System.Double[0:,0:])">
-            <summary>
-            Retorna a transposta de uma matriz
-            </summary>
-            <param name="matriz">Matriz</param>
-            <returns></returns>
-        </member>
         <member name="M:Matematica.Matriz.ProdutoConstanteMatriz(System.Double,System.Double[0:,0:])">
             <summary>
             Retorna o produto de uma matriz por uma constante
@@ -68,19 +114,34 @@
             <param name="matriz">Matriz</param>
             <returns></returns>
         </member>
-        <member name="M:Matematica.Matriz.Oposta(System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.Identidade(System.Int32)">
+            <summary>
+            Retorma uma matriz identidade quando especificada a ordem. Ex: para retornar uma identidade 2x2 o valor da ordem deve ser 2.
+            </summary>
+            <param name="ordem">Número de linhas/colunas da matriz identidade</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.Transposta">
+            <summary>
+            Retorna a transposta da matriz
+            </summary>
+        </member>
+        <member name="M:Matematica.Matriz.Oposta">
             <summary>
             Retorna a oposta da matriz
             </summary>
-            <param name="matriz">Matriz</param>
             <returns></returns>
         </member>
-        <member name="M:Matematica.Matriz.Determinante(System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.Determinante">
             <summary>
             Retorna o determinante da matriz
             </summary>
-            <param name="matriz">Matriz</param>
-            <returns>Retorna o valor do determinante de qualquer matriz</returns>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.DeterminanteAux(System.Double[0:,0:])">
+            <summary>
+            Retorna o determinante da matriz
+            </summary>
         </member>
         <member name="M:Matematica.Matriz.TrimArray(System.Int32,System.Int32,System.Double[0:,0:])">
             <summary>
@@ -91,12 +152,24 @@
             <param name="originalArray">Recebe a matriz original</param>
             <returns>Retorna a matriz com linha e coluna removidos</returns>
         </member>
-        <member name="M:Matematica.Matriz.Inversa(System.Double[0:,0:])">
+        <member name="M:Matematica.Matriz.Inversa">
+            <summary>
+            Retorna a Inversa da matriz
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Matriz.InversaAux(System.Double[0:,0:])">
             <summary>
             Retorna inversa da matriz
             </summary>
             <param name="matriz">Matriz</param>
             <returns>Retorna a inversa da matriz</returns>
+        </member>
+        <member name="M:Matematica.Matriz.IsQuadrada">
+            <summary>
+            Retorna verdadeiro caso a matriz seja quadrada
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Matematica.Matriz.IsMatrizQuadrada(System.Double[0:,0:])">
             <summary>
@@ -110,6 +183,91 @@
             Transforma um vetor em uma matriz com uma linha
             </summary>
             <param name="vetor">vetor</param>
+            <returns></returns>
+        </member>
+        <member name="T:Matematica.Vetor">
+            <summary>
+            Vetor
+            </summary>
+        </member>
+        <member name="M:Matematica.Vetor.#ctor(System.Double[])">
+            <summary>
+            Inicia um nova instância de um Vetor a partir de um array unidimensional
+            </summary>
+            <param name="vetor">Array unidimensional de double</param>
+        </member>
+        <member name="M:Matematica.Vetor.#ctor(System.Int32)">
+            <summary>
+            Inicia um nova instância de um Vetor a partir do comprimento
+            </summary>
+            <param name="comprimento">Comprimento do Vetor</param>
+        </member>
+        <member name="P:Matematica.Vetor.Comprimento">
+            <summary>
+            Número de posições do vetor
+            </summary>
+        </member>
+        <member name="P:Matematica.Vetor.Item">
+            <summary>
+            Array com os valores do vetor
+            </summary>
+        </member>
+        <member name="P:Matematica.Vetor.Maximo">
+            <summary>
+            Retorna o máximo valor do vetor
+            </summary>
+        </member>
+        <member name="P:Matematica.Vetor.Minimo">
+            <summary>
+            Retorna o mínimo valor do vetor
+            </summary>
+        </member>
+        <member name="M:Matematica.Vetor.op_Addition(Matematica.Vetor,Matematica.Vetor)">
+            <summary>
+            Retorna a soma de dois vetores
+            </summary>
+            <param name="vetorA">Primeiro Vetor</param>
+            <param name="vetorB">Segundo Vetor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Vetor.op_Subtraction(Matematica.Vetor,Matematica.Vetor)">
+            <summary>
+            Retorna a subtração de dois vetores
+            </summary>
+            <param name="vetorA">Primeiro Vetor</param>
+            <param name="vetorB">Segundo Vetor</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Vetor.op_Multiply(Matematica.Vetor,System.Double)">
+            <summary>
+            Retorna o produto de uma constate por um vetor
+            </summary>
+            <param name="vetor">Vetor</param>
+            <param name="c">Constante</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Vetor.op_Multiply(System.Double,Matematica.Vetor)">
+            <summary>
+            Retorna o produto de uma constate por um vetor
+            </summary>
+            <param name="vetor">Vetor</param>
+            <param name="c">Constante</param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Vetor.op_Multiply(Matematica.Vetor,Matematica.Vetor)">
+            <summary>
+            Retorna o produto escalar entre dois vetores
+            </summary>
+            <param name="vetorA"></param>
+            <param name="vetorB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Matematica.Vetor.ProdutoConstanteVetor(System.Double,System.Double[])">
+            <summary>
+            Realiza o produto de uma constante por um Vetor
+            </summary>
+            <param name="c"></param>
+            <param name="vetor"></param>
             <returns></returns>
         </member>
     </members>
